@@ -7,13 +7,12 @@ export type CreateTaskDTO = {
     completed_at: string | null;
 }
 
-const getAllTasks = (): Response => {
-    return new Response(JSON.stringify(getTaskList()));
+const getAllTasks = (): CreateTaskDTO[] => {
+    return getTaskList();
 }
 
-const createTask = (task: CreateTaskDTO): Response => {
-    createNewTask(task);
-    return new Response(JSON.stringify(task));
+const createTask = (task: CreateTaskDTO): CreateTaskDTO => {
+    return createNewTask(task);
 }
 
 export { createTask, getAllTasks }
