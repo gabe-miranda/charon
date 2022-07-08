@@ -1,18 +1,18 @@
-import { createNewTask, getTaskList } from '../storage/index.ts'
+import { createNewTask, getTaskList } from "../storage/index.ts";
 
-export type CreateTaskDTO = {
-    name: string;
-    completed: boolean;
-    due_date: string;
-    completed_at: string | null;
+export interface CreateTaskDTO {
+  name: string;
+  completed: boolean;
+  due_date: string;
+  completed_at: string | null;
 }
 
 const getAllTasks = (): CreateTaskDTO[] => {
-    return getTaskList();
-}
+  return getTaskList();
+};
 
 const createTask = (task: CreateTaskDTO): CreateTaskDTO => {
-    return createNewTask(task);
-}
+  return createNewTask(task);
+};
 
-export { createTask, getAllTasks }
+export { createTask, getAllTasks };
