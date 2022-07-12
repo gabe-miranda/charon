@@ -13,11 +13,20 @@ export default function TaskList(props: { task_data: CreateTaskDTO[] | null }) {
       {props.task_data.map((task) => {
         return (
           <div>
-            <h2>{task.name}</h2>
-            <h2>{task.due_date}</h2>
+            <ul style={styles.checklist}>
+              <li>{task.name}</li>
+              <li>{task.completed}</li>
+              <li>{task.due_date}</li>
+            </ul>
           </div>
         );
       })}
     </div>
   );
 }
+
+const styles = {
+  checklist: {
+    "list-style": "none",
+  },
+} as const;
